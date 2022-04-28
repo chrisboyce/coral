@@ -1,0 +1,6 @@
+[workspace]
+
+members = [
+    "coral-cli",
+    "coral"
+]
