@@ -1,22 +1,29 @@
-use clap::Parser;
+use clap::{Parser, Subcommand};
 
-/// Simple program to greet a person
 #[derive(Parser, Debug)]
-#[clap(author, version, about, long_about = None)]
+#[clap(author = "Chris Boyce, Cameron Fraser", version = "0.1", about, long_about = None)]
 struct Args {
-    /// Name of the person to greet
-    #[clap(short, long)]
-    name: String,
+    #[clap(subcommand)]
+    action: Action,
+}
 
-    /// Number of times to greet
-    #[clap(short, long, default_value_t = 1)]
-    count: u8,
+#[derive(Subcommand, Debug)]
+enum Action {
+    /// Initialize coral
+    Init {
+        #[clap(short, long, forbid_empty_values = true, required = false)]
+        /// Location of directory to initialize in if different from cwd
+        dir: Option<String>,
+    },
 }
 
 fn main() {
     let args = Args::parse();
 
-    for _ in 0..args.count {
-        println!("Hello {}!", args.name)
+    match args.action {
+        Action::Init { dir } => match dir {
+            Some(d) => println!("dir provided at {}", d),
+            None => println!("No dir provided"),
+        },
     }
 }
