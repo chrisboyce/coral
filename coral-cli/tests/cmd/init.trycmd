@@ -1,0 +1,13 @@
+Basic init:
+```
+$ coral-cli init
+No dir provided
+
+```
+
+Init with path:
+```
+$ coral-cli init -d /usr/local
+dir provided at /usr/local
+
+```
