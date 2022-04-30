@@ -1,3 +1,5 @@
+_default:    
+    @just -l
 test-cli:
     cargo test -p coral-cli
 
