@@ -22,3 +22,5 @@ Cargo.lock
 node_modules
 
 dump
+
+dist
