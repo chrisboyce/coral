@@ -2,5 +2,6 @@
 
 members = [
     "coral-cli",
-    "coral"
+    "coral",
+    "coral-docs"
 ]
